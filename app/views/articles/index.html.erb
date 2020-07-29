@@ -1,27 +1,33 @@
-<h1>Articles</h1>
 
-<table>
-    <thead> 
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th colspan='3'>Actions</th>
-        <tr>
-    </head>
+    <h1 class="center-align">Articles</h1>
 
-    <tbody> 
-        <% @articles.each do |article| %>
-        <tr>
-            <td><%= article.title%></td>
-            <td><%= article.description%></td>
-            <td><%= link_to 'View', article_path(article.id) %></td>
-            <td><%= link_to 'Edit', edit_article_path(article.id)%></td>
-            <td><%= link_to 'Delete', article_path(article.id), method: :delete , data: { confirm: "Do you want to delete it?"}%></td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
+            <% @articles.each do |article| %>
+                <div class="main-article-view">
+                    <div class="created-at-article-view-top">
+                        <p class="created-at-article-text">by Korab Dragidella<p>
+                    </div>
+                    <div class="main-article-content">
+                        <h4 class="article-title"><%= article.title%></h4>
+                        <p class="article-description"><%= article.description%></p>
 
-<br> <br>
-<%= link_to 'Create a new article', new_article_path() %>
+                        <button class="btn btn-outline-success my-2 my-sm-0 view-article" >
+                            <%= link_to 'View', article_path(article.id) %>
+                        </button>
+                        <button class="btn btn-outline-success my-2 my-sm-0 edit-article">
+                            <%= link_to 'Edit', edit_article_path(article.id)%>
+                        </button>
+                        <button class="btn btn-outline-success my-2 my-sm-0 delete-article">
+                            <%= link_to 'Delete', article_path(article.id), method: :delete , 
+                                data: { confirm: "Do you want to delete it?"}%></td>
+                        </button>
+                    </div>
+                    <div class="created-at-article-view">
+                        <p class="created-at-article-text"> Created at <%= time_ago_in_words(article.created_at)%> ago, edited <%= time_ago_in_words(article.updated_at) %> ago<p>
+                    </div>
+                </div>
+            <% end %>
+
+
+    <br> <br>
+    <%= link_to 'Create a new article', new_article_path() %>
 

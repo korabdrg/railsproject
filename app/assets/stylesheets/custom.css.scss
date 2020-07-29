@@ -1,0 +1,174 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar { 
+        background-color: black !important
+}
+
+.navbar a {
+    color:white !important
+}
+
+#logo{
+    color:red !important
+}
+
+#home-container{    
+    margin-top: 25px;
+    text-align: center;
+}
+
+#bckg-img{
+    background-image: url('https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg&ga=GA1.2.220405432.1595894400');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.white-font{
+    color:white
+}
+
+html,
+body {
+    height:100% !important;
+}
+
+#page-content {
+    flex: 1 0 auto;
+    background-color: lightgray;
+}
+
+#sticky-footer {
+    flex-shrink: none;
+}
+
+.main-article-view{
+    // background-color: red;
+    text-align: center;
+    // padding-top:50px;
+    width:60%;
+    align-self: center;
+    margin-bottom:50px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    -webkit-box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.75);
+    box-shadow: -1px 1px 23px -7px rgba(0,0,0,0.75);
+    
+    
+}
+.article-title{
+    color:green
+}
+
+.article-description{
+    color:rgba(0,0,0,0.5)
+}
+
+.view-article{
+    margin:10px
+}
+.view-article a{
+    color:green
+}
+
+.edit-article{
+    border-color:blue;
+    margin:10px
+}
+
+.center-align{
+    text-align:center;
+    margin:20px 0 20px 0
+}
+
+.edit-article a{
+    color:blue;
+}
+
+.delete-article{
+    border-color:red;
+    margin:10px
+}
+
+.delete-article a{
+    color:red;
+}
+
+.created-at-article-view{
+    margin-top:10px;
+    background-color: rgba(200,200,200,0.4);
+    height:40px;
+}
+
+.created-at-article-view-top{
+    background-color: rgba(200,200,200,0.4);
+    height:40px;
+}
+
+.main-article-content{
+    padding:20px
+}
+
+.created-at-article-text{
+    align-self: center;
+    padding:6px 0 !important
+}
+
+.new-article-main-view{
+    background-color:#1ba0b5;
+    border-radius: 15px;
+    // height:55%;
+    padding:20px
+}
+
+.view-all-articles, .view-all-articles a{
+    color:#1ba0b5;
+    text-align: center;
+    margin-top:20px
+}
+
+.input-with-label textarea{
+    height:140px;
+    width:65% 
+}
+
+
+.input-with-label input{
+    width:65%;
+}
+
+.input-with-label {
+    width:100% !important
+}
+
+.input-with-label label{
+    color:white;
+    width: 30%;
+}
+
+.create-article-button{
+    color:white;
+    border-color:white;
+    align-self: center;
+}
+
+.center-everything{
+    text-align:center;
+    margin-top:50px
+}
+
+.field_with_errors textarea{
+    height:140px;
+    width:500px;
+    margin-left:20px
+}
+
+.field_with_errors label{
+    color:white;
+    margin-right:50px !important
+}
+
+.field_with_errors input{
+    width:500px;
+    margin-left:70px
+}
