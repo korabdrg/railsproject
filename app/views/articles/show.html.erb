@@ -1,8 +1,23 @@
-<h1> Article </h1>
-<h5>Title: <span><%= @article.title %></span></h1>
-<h5>Description: <span><%= @article.description %></span></h1>
+<h1 class="center-everything bottom-margin"> <%= @article.title%> </h1>
+<div class="main-article-view">
+<div class="created-at-article-view-top">
+    <p class="created-at-article-text">by Korab Dragidella<p>
+</div>
+<div class="main-article-content">
+    <p class="article-description"><%= @article.description%></p>
 
+    <button class="btn btn-outline-success my-2 my-sm-0 edit-article">
+        <%= link_to 'Edit', edit_article_path(@article.id)%>
+    </button>
+    <button class="btn btn-outline-success my-2 my-sm-0 delete-article">
+        <%= link_to 'Delete', article_path(@article.id), method: :delete , 
+            data: { confirm: "Do you want to delete it?"}%></td>
+    </button>
+</div>
+<div class="created-at-article-view">
+    <p class="created-at-article-text"> Created at 
+        <%= time_ago_in_words(@article.created_at)%> ago, 
+            edited <%= time_ago_in_words(@article.updated_at) %> ago<p>
+</div>
+</div>
 
-<%= link_to 'Edit', edit_article_path() %> |
-<%= link_to 'Delete', article_path, method: :delete, data: { confirm: "Do you want to delete it?"} %> |
-<%= link_to 'View all articles', articles_path%>
