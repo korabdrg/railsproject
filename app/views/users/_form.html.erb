@@ -26,13 +26,11 @@
     <div class="row">
     <p class="input-with-label">   
         <%= f.label :password %> 
-        <%= f.password_field :password, placeholder: "Enter an email"%>
+        <%= f.password_field :password, placeholder: "Enter password"%>
     </p>
     </div>
-    <div class="center-everything">
-        <button class="btn btn-outline-success my-2 my-sm-0 create-article-button" 
-            submit= <%= f.submit %>
-        Sign up
-        </button>
+    <div class="center-everything">     
+        <%= f.submit(@user.new_record? ? "Sign up" : "Update", 
+            class:"btn btn-outline-success my-2 my-sm-0 create-article-button" )%>
     </div>
     <% end %>
