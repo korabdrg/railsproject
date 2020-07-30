@@ -1,11 +1,10 @@
 
     <h1 class="center-align">Articles</h1>
     <%= link_to 'Create a new article', new_article_path() %>
-
             <% @articles.each do |article| %>
                 <div class="main-article-view">
                     <div class="created-at-article-view-top">
-                        <p class="created-at-article-text"><%= article.user_id%><p>
+                        <p class="created-at-article-text">by <%= article.user.username %><p>
                     </div>
                     <div class="main-article-content">
                         <h4 class="article-title"><%= article.title%></h4>

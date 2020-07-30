@@ -1,7 +1,7 @@
 <h1 class="center-everything bottom-margin"> <%= @article.title%> </h1>
 <div class="main-article-view">
 <div class="created-at-article-view-top">
-    <p class="created-at-article-text">by Korab Dragidella<p>
+    <p class="created-at-article-text">by <%= @article.user.username %><p>
 </div>
 <div class="main-article-content">
     <p class="article-description"><%= @article.description%></p>
