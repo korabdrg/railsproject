@@ -1,0 +1,38 @@
+<% if @user.errors.any? %>
+    <h3>Errors:</h3>
+    <ul>
+        <% @user.errors.full_messages.each do |message| %>
+            <% p message %>
+            <li> <%= message  %> </li>
+        <% end%>
+    </ul>
+<% end%>
+
+<%= form_with(model: @user, local:true) do|f|%>
+    <div class="row">
+    <p class="input-with-label">    
+        <%= f.label :username %> 
+        <%= f.text_field :username, placeholder: "Enter username" %>
+    </p>
+    </div>
+
+    <div class="row">
+        <p class="input-with-label">   
+            <%= f.label :email %> 
+            <%= f.email_field :email, placeholder: "Enter an email"%>
+        </p>
+    </div>
+
+    <div class="row">
+    <p class="input-with-label">   
+        <%= f.label :password %> 
+        <%= f.password_field :password, placeholder: "Enter an email"%>
+    </p>
+    </div>
+    <div class="center-everything">
+        <button class="btn btn-outline-success my-2 my-sm-0 create-article-button" 
+            submit= <%= f.submit %>
+        Sign up
+        </button>
+    </div>
+    <% end %>
