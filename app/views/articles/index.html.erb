@@ -1,6 +1,8 @@
 
     <h1 class="center-align">Articles</h1>
-    <%= link_to 'Create a new article', new_article_path() %>
+            <button class="btn btn-outline-success my-2 my-sm-0 create-article">
+                <%= link_to 'Create a new article', new_article_path() %>
+            </button>
             <% @articles.each do |article| %>
                 <div class="main-article-view">
                     <div class="created-at-article-view-top">
