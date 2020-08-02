@@ -1,0 +1,48 @@
+<h1 class="center-everything bottom-margin"> 
+<%= @user.username%>'s profile </h1>
+
+<%= gravatar_for @user , size:400%>
+<button class="btn btn-outline-success my-2 my-sm-0 create-article">
+<%= link_to 'Edit user', edit_user_path(@user.id) %>
+</button>
+
+
+<h1 class="center-everything"> Articles </h1>
+
+<% if(@user.articles.length > 0) %>
+    <%= @user.articles.each do |article| %>
+        
+        <div class="main-article-view">
+        <div class="created-at-article-view-top">
+            <p class="created-at-article-text">by 
+                <%= article.user.username %><p>
+        </div>
+        <div class="main-article-content">
+        <p class="article-title"> 
+            <%= article.title%> </p>
+            <p class="article-description">
+                <%= article.description%></p>
+
+            <button class="btn btn-outline-success my-2 my-sm-0 view-article" >
+                <%= link_to 'View', article_path(article.id) %>
+            </button>
+            <button class="btn btn-outline-success my-2 my-sm-0 edit-article">
+                <%= link_to 'Edit', edit_article_path(article.id)%>
+            </button>
+            <button class="btn btn-outline-success my-2 my-sm-0 delete-article">
+                <%= link_to 'Delete', article_path(article.id), 
+                    method: :delete , 
+                    data: { confirm: "Do you want to delete it?"}%></td>
+            </button>
+        </div>
+        <div class="created-at-article-view">
+            <p class="created-at-article-text"> Created at 
+                <%= time_ago_in_words(article.created_at)%> ago, 
+                    edited <%= time_ago_in_words(article.updated_at) %> 
+                    ago<p>
+        </div>
+        </div>
+    <% end %>
+<% else %>
+    <h3 class="no-articles">No articles </h3>
+<% end %>

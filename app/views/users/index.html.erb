@@ -1,0 +1,40 @@
+<h1 class="center-everything">Bloggers </h1>
+
+<div class="flickr_pagination margin-bottom">
+                <%= will_paginate @users, 
+                    :container => false %>
+            </div>
+
+<%= @users.each do |user| %>
+<div class="main-article-view">
+        <div class="created-at-article-view-top">
+            <p class="created-at-article-text"> 
+             <%= link_to user.username, user_path(user.id) %>
+            <p>
+        </div>
+
+        <div class="gravatar-in-show-page">
+            <%= gravatar_for user, size:100%>
+        </div>
+
+        <p class="created-at-article-text"> 
+            <%= user.articles.length %> articles </p>
+        <div class="main-article-content">
+            <button class="btn btn-outline-success my-2 my-sm-0 view-article" >
+                <%= link_to 'View Profile', user_path(user.id) %>
+            </button>
+            <button class="btn btn-outline-success my-2 my-sm-0 edit-article">
+                <%= link_to 'Edit Profile', edit_user_path(user.id)%>
+            </button>
+        </div>
+        <div class="created-at-article-view">
+            <p class="created-at-article-text"> Joined 
+                <%= time_ago_in_words(user.created_at)%> ago<p>
+        </div>
+    </div>
+<% end %>
+
+<div class="flickr_pagination margin-bottom">
+                <%= will_paginate @users, 
+                    :container => false %>
+            </div>

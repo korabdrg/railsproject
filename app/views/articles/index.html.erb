@@ -3,9 +3,11 @@
             <button class="btn btn-outline-success my-2 my-sm-0 create-article">
                 <%= link_to 'Create a new article', new_article_path() %>
             </button>
-            <button class="btn btn-outline-success my-2 my-sm-0 create-article">
-                <%= link_to 'Edit user', edit_user_path(4) %>
-            </button>
+            <div class="flickr_pagination margin-bottom">
+                <%= will_paginate @articles, 
+                    :container => false %>
+            </div>
+
             <% @articles.each do |article| %>
                 <div class="main-article-view">
                     <div class="created-at-article-view-top">
@@ -31,6 +33,10 @@
                     </div>
                 </div>
             <% end %>
+            <div class="flickr_pagination">
+            <%= will_paginate @articles, :container => false %>
+        </div>
+
 
 
     <br> <br>
