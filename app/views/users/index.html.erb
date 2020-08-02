@@ -5,8 +5,8 @@
                     :container => false %>
             </div>
 
-<%= @users.each do |user| %>
-<div class="main-article-view">
+<% @users.each do |user| %>
+    <div class="main-article-view">
         <div class="created-at-article-view-top">
             <p class="created-at-article-text"> 
              <%= link_to user.username, user_path(user.id) %>
@@ -23,9 +23,11 @@
             <button class="btn btn-outline-success my-2 my-sm-0 view-article" >
                 <%= link_to 'View Profile', user_path(user.id) %>
             </button>
+            <% if logged_in? and session[:user_id] == user.id %>
             <button class="btn btn-outline-success my-2 my-sm-0 edit-article">
                 <%= link_to 'Edit Profile', edit_user_path(user.id)%>
             </button>
+            <% end %>
         </div>
         <div class="created-at-article-view">
             <p class="created-at-article-text"> Joined 

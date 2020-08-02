@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :find_user, only:[:show, :edit, :update, :destroy]
-
+    before_action :require_user, only: [:edit, :update]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
 def new 
     @user = User.new
 end
@@ -35,6 +36,13 @@ def update
     end
 end
 
+def destroy
+    @user.destroy
+    session[:user_id] = nil
+    flash[:notice] = "Account deleted!"
+    redirect_to login_path
+end
+
 private 
     def user_params
         params.require(:user).permit(:username, :email, :password)
@@ -42,5 +50,12 @@ private
 
     def find_user
         @user = User.find(params[:id])
+    end
+
+    def require_same_user
+        if current_user != @user
+            flash[:alert] = "You can't edit this."
+            redirect_to @user
+        end
     end
 end

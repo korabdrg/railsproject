@@ -83,6 +83,24 @@ body {
     align-self: center;
 }
 
+.remove-user{
+    border-color:red;
+    margin:20px !important;
+    width:20%;
+    align-self: center;
+}
+
+.remove-user a{
+    color:red
+}
+
+.remove-user:hover a{
+    color:white
+}
+
+.remove-user:hover{
+    background-color: red;
+}
 .center-align{
     text-align:center;
     margin:20px 0 20px 0

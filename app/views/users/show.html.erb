@@ -2,9 +2,17 @@
 <%= @user.username%>'s profile </h1>
 
 <%= gravatar_for @user , size:400%>
+<% if logged_in? and session[:user_id] == @user.id %>
 <button class="btn btn-outline-success my-2 my-sm-0 create-article">
 <%= link_to 'Edit user', edit_user_path(@user.id) %>
 </button>
+
+<button class="btn btn-outline-error my-2 my-sm-0 remove-user">
+<%= link_to 'Delete user', user_path(@user.id), 
+    method: :delete, data:{confirm: "Are you sure?"} %>
+</button>
+
+<% end %>
 
 
 <h1 class="center-everything"> Articles </h1>
@@ -26,6 +34,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0 view-article" >
                 <%= link_to 'View', article_path(article.id) %>
             </button>
+            <% if logged_in? and session[:user_id] == article.user_id %>
             <button class="btn btn-outline-success my-2 my-sm-0 edit-article">
                 <%= link_to 'Edit', edit_article_path(article.id)%>
             </button>
@@ -34,6 +43,7 @@
                     method: :delete , 
                     data: { confirm: "Do you want to delete it?"}%></td>
             </button>
+            <% end %>
         </div>
         <div class="created-at-article-view">
             <p class="created-at-article-text"> Created at 
