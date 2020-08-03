@@ -38,9 +38,9 @@ end
 
 def destroy
     @user.destroy
-    session[:user_id] = nil
+    session[:user_id] =  nil if @user == current_user
     flash[:notice] = "Account deleted!"
-    redirect_to login_path
+    redirect_to articles_path
 end
 
 private 
@@ -53,7 +53,7 @@ private
     end
 
     def require_same_user
-        if current_user != @user
+        if current_user != @user and !current_user.admin?
             flash[:alert] = "You can't edit this."
             redirect_to @user
         end

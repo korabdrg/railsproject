@@ -22,7 +22,8 @@
                         <button class="btn btn-outline-success my-2 my-sm-0 view-article" >
                             <%= link_to 'View', article_path(article.id) %>
                         </button>
-                        <% if logged_in? and session[:user_id] == article.user_id %>
+                        <% if logged_in? and 
+                            (session[:user_id] == article.user_id || current_user.admin?) %>
                         <button class="btn btn-outline-success my-2 my-sm-0 edit-article">
                             <%= link_to 'Edit', edit_article_path(article.id)%>
                         </button>

@@ -2,7 +2,8 @@
 <%= @user.username%>'s profile </h1>
 
 <%= gravatar_for @user , size:400%>
-<% if logged_in? and session[:user_id] == @user.id %>
+<% if logged_in? and 
+(session[:user_id] == @user.id || current_user.admin?) %>%>
 <button class="btn btn-outline-success my-2 my-sm-0 create-article">
 <%= link_to 'Edit user', edit_user_path(@user.id) %>
 </button>
