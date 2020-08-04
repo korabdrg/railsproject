@@ -18,7 +18,10 @@
                     <div class="main-article-content">
                         <h4 class="article-title"><%= article.title%></h4>
                         <p class="article-description"><%= article.description%></p>
-
+                        <% if article.categories.any? %>
+                            <%= render article.categories %>
+                        <% end %>
+                        </p>
                         <button class="btn btn-outline-success my-2 my-sm-0 view-article" >
                             <%= link_to 'View', article_path(article.id) %>
                         </button>

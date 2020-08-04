@@ -1,0 +1,22 @@
+<h1 class="center-align">Articles</h1>
+
+<% if logged_in? and current_user.admin? %>
+<button class="btn btn-outline-success my-2 my-sm-0 create-article">
+    <%= link_to 'Create a new category', new_category_path() %>
+</button>
+<% end %>
+<div class="flickr_pagination margin-bottom">
+<%= will_paginate @categories, 
+    :container => false %>
+</div>
+
+    <% @categories.each do |category| %>
+        <div class="main-article-view big-height-small-width">
+        <%= link_to category.name, category_path(category)%> <br>
+         <%= category.articles.length %> articles
+         </div>
+    <% end %>
+<div class="flickr_pagination">
+<%= will_paginate @categories, :container => false %>
+</div>
+

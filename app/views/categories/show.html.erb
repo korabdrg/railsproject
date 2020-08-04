@@ -1,0 +1,39 @@
+<h3 class="center-everything">Category: <%= @category.name %></h3>
+<% if logged_in? and 
+current_user.admin? %>
+<button class="btn btn-outline-success my-2 my-sm-0 create-article">
+<%= link_to 'Edit category', edit_category_path(@category) %>
+</button>
+<% end %>
+<div class="flickr_pagination margin-bottom">
+<%= will_paginate @articles, 
+    :container => false %>
+</div>
+<% @category.articles.each do |article| %>
+    <div class="main-article-view">
+    <div class="created-at-article-view-top">
+        <p class="created-at-article-text">by <%= article.user.username %><p>
+    </div>
+    <div class="main-article-content">
+    <h1 class="article-title"> <%= article.title%> </h1>
+        <p class="article-description"><%= article.description%></p>
+        <% if logged_in? and session[:user_id] == article.user_id %>
+        <button class="btn btn-outline-success my-2 my-sm-0 edit-article">
+            <%= link_to 'Edit', edit_article_path(article.id)%>
+        </button>
+        
+        <button class="btn btn-outline-success my-2 my-sm-0 delete-article">
+            <%= link_to 'Delete', article_path(article.id), method: :delete , 
+                data: { confirm: "Do you want to delete it?"}%></td>
+        </button>
+        <% end%>
+    </div>
+    <div class="created-at-article-view">
+        <p class="created-at-article-text"> Created at 
+            <%= time_ago_in_words(article.created_at)%> ago, 
+                edited <%= time_ago_in_words(article.updated_at) %> ago<p>
+    </div>
+    </div>
+    
+    
+<% end %>

@@ -4,7 +4,12 @@
     <p class="created-at-article-text">by <%= @article.user.username %><p>
 </div>
 <div class="main-article-content">
-    <p class="article-description"><%= @article.description%></p>
+    <p class="article-description"><%= @article.description%>
+    <% if @article.categories.any? %>
+        <p class="article-description">Categories: 
+       <%= render @article.categories %>
+    <% end %>
+    </p>
     <% if logged_in? and session[:user_id] == @article.user_id %>
     <button class="btn btn-outline-success my-2 my-sm-0 edit-article">
         <%= link_to 'Edit', edit_article_path(@article.id)%>

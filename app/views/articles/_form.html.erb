@@ -21,6 +21,16 @@
             <%= f.text_area :description, placeholder: "Description"%>
         </p>
     </div>
+
+    <div class="row">
+        <p class="input-with-label">   
+            <%= f.label :categories %> 
+            <%= f.collection_select(:category_ids, Category.all, :id, :name,
+            {prompt: "Select (optional)"}, 
+            {multiple: true, class:"custom-select width-60"})%>
+        </p>
+    </div>
+
     <div class="center-everything">
         <button class="btn btn-outline-success my-2 my-sm-0 create-article-button" 
             submit= <%= f.submit %>

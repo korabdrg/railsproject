@@ -56,6 +56,11 @@ body {
     
     
 }
+
+.big-height-small-width{
+    justify-content: center;
+    width:20%;
+}
 .article-title{
     color:green
 }
@@ -81,6 +86,10 @@ body {
     margin:20px !important;
     width:20%;
     align-self: center;
+}
+
+.width-60{
+    width:65%
 }
 
 .remove-user{

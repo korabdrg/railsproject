@@ -1,0 +1,16 @@
+
+
+<%= form_with(model: @category, local:true) do|f|%>
+    <div class="row">
+    <p class="input-with-label">    
+        <%= f.label :name, "Category name" %> 
+        <%= f.text_field :name, placeholder: "Enter category name" %>
+    </p>
+    </div>
+
+  
+    <div class="center-everything">     
+        <%= f.submit("Submit", 
+            class:"btn btn-outline-success my-2 my-sm-0 create-article-button" )%>
+    </div>
+    <% end %>
